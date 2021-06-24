@@ -1,0 +1,71 @@
+package com.yf.exam.modules.paper.dto;
+
+import com.yf.exam.core.annon.Dict;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
+
+@Data
+@ApiModel(value="作业", description="作业")
+public class PaperDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+
+    @ApiModelProperty(value = "作业ID", required=true)
+    private String id;
+
+    @Dict(dictTable = "sys_user", dicText = "real_name", dicCode = "id")
+    @ApiModelProperty(value = "用户ID", required=true)
+    private String userId;
+
+    @Dict(dictTable = "sys_depart", dicText = "dept_name", dicCode = "id")
+    @ApiModelProperty(value = "班级ID", required=true)
+    private String departId;
+
+    @ApiModelProperty(value = "规则ID", required=true)
+    private String examId;
+
+    @ApiModelProperty(value = "作业标题", required=true)
+    private String title;
+
+    @ApiModelProperty(value = "作业时长", required=true)
+    private Integer totalTime;
+
+    @ApiModelProperty(value = "用户时长", required=true)
+    private Integer userTime;
+
+    @ApiModelProperty(value = "作业总分", required=true)
+    private Integer totalScore;
+
+    @ApiModelProperty(value = "及格分", required=true)
+    private Integer qualifyScore;
+
+    @ApiModelProperty(value = "客观分", required=true)
+    private Integer objScore;
+
+    @ApiModelProperty(value = "主观分", required=true)
+    private Integer subjScore;
+
+    @ApiModelProperty(value = "用户得分", required=true)
+    private Integer userScore;
+
+    @ApiModelProperty(value = "是否包含简答题", required=true)
+    private Boolean hasSaq;
+
+    @ApiModelProperty(value = "作业状态", required=true)
+    private Integer state;
+
+    @ApiModelProperty(value = "创建时间", required=true)
+    private Date createTime;
+
+    @ApiModelProperty(value = "更新时间", required=true)
+    private Date updateTime;
+
+    @ApiModelProperty(value = "截止时间")
+    private Date limitTime;
+    
+}
